@@ -1,0 +1,56 @@
+
+body {
+  height: 100vh;
+  text-align: center;
+  height: 100vh;
+}
+
+table {
+  position: relative;
+  margin: auto;
+}
+
+tr label {
+  position: relative;
+  display: none;
+}
+
+tr input[type="text"] {
+  text-transform: uppercase;
+  width: 100px;
+  height: 100px;
+  font-size: 48px;
+  text-align: center;
+}
+
+tr:has(input:placeholder-shown) ~ tr input,  tr:not(:has(input:placeholder-shown, input:focus)) input{
+  pointer-events: none;
+}
+
+tr:not(:has(input:placeholder-shown, input:focus)) input[type="text"]:invalid {
+  background-color: lightgray;
+}
+
+tr:not(:has(input:placeholder-shown, input:focus)) input[type="text"]:valid {
+  background-color: lightgreen;
+}
+
+table tr:not(:has(input:placeholder-shown, input:focus, input:invalid)):after {
+  content: "Você venceu!";
+  display: block;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  position: absolute;
+  left: 0px;
+  bottom: -50px;
+  width: 100%;
+  z-index: 999;
+}
+
+tr:not(:has(input:placeholder-shown, input:focus, input:invalid)) ~ tr {
+  display: none;
+}
+
+
